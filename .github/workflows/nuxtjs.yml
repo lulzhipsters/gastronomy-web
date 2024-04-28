@@ -49,7 +49,7 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: nuxt
       - run: pnpm i --frozen-lockfile
-      - run: npx nuxt build --preset github_pages
+      - run: npm run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
