@@ -41,7 +41,7 @@ jobs:
           node-version: "20"
           cache: pnpm
       - run: pnpm i --frozen-lockfile
-      - run: npm run generate
+      - run: npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
