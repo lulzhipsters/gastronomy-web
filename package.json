@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.1.66",
+    "@nuxt/content": "^2.12.1",
     "@nuxt/ui": "^2.15.2",
     "@tailwindcss/typography": "^0.5.12",
     "nuxt": "^3.11.2",
