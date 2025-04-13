@@ -1,16 +1,20 @@
 ---
+import SearchModal from "../components/SearchModal.astro";
 import GitHubLogo from "../assets/github.svg";
 ---
 
 <div class="navbar bg-base-100 shadow-sm">
-    <div class="flex-1">
-      <a class="btn btn-ghost text-xl">Gastronomy</a>
-    </div>
-    <div class="flex-none">
-      <ul class="menu menu-horizontal px-1">
-        <li>
-            <a href="https://github.com/lulzhipsters/gastronomy"><GitHubLogo width={20} height={20} /> GitHub</a>
-        </li>
-      </ul>
-    </div>
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">Gastronomy</a>
   </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <SearchModal />
+      </li>
+      <li>
+          <a href="https://github.com/lulzhipsters/gastronomy"><GitHubLogo width={20} height={20} /> GitHub</a>
+      </li>
+    </ul>
+  </div>
+</div>

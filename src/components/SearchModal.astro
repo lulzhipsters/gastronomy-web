@@ -1,0 +1,18 @@
+---
+import Search from "astro-pagefind/components/Search";
+import SearchIcon from "../assets/search.svg";
+---
+
+<a onclick="search_modal.showModal()"><SearchIcon width={20} height={20}/> Search</a>
+<div class="absolute">
+  <dialog id="search_modal" class="modal">
+    <div class="modal-box">
+      <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false, autofocus: true }} />
+      <p class="mt-4">
+        <a class="link text-sm font-light" onclick="search_modal.close()">Close (ESC)</a>
+      </p>
+    </div>
+    <form method="dialog" class="modal-backdrop" onclick="search_modal.close()">
+    </form>
+  </dialog>
+</div>
