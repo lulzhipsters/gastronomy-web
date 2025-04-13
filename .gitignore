@@ -15,3 +15,5 @@ logs
 .env.*
 !.env.example
 .aider*
+!.aider.docs.md
+!.aider.conf.yml
