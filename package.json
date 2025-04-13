@@ -1,24 +1,22 @@
 {
-  "name": "gastronomy-web",
-  "private": true,
+  "name": "popular-phase",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "build-github-pages": "NUXT_APP_BASE_URL=/ nuxt build --preset github_pages",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "prepare": "nuxt prepare",
-    "postinstall": "nuxt prepare",
-    "host-static": "npm run generate && npx http-server ./.output/public/"
+    "prebuild": "sh ./scripts/pull-content-repo.sh",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@iconify-json/mdi": "^1.1.66",
-    "@nuxt/content": "^2.12.1",
-    "@nuxt/ui": "^2.15.2",
-    "@tailwindcss/typography": "^0.5.12",
-    "nuxt": "^3.11.2",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.3",
+    "astro": "^5.7.0",
+    "astro-pagefind": "^1.8.3",
+    "tailwindcss": "^4.1.3"
+  },
+  "devDependencies": {
+    "daisyui": "^5.0.19"
   }
 }
