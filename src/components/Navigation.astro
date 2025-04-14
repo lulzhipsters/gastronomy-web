@@ -44,24 +44,28 @@ import GitHubLogo from "../assets/github.svg";
 </div>
 
 <script is:inline>
-  const storeTheme = (theme) => window.localStorage.setItem('theme', theme);
+  const THEME = "theme"
+  const DARK = "dark"
+  const LIGHT = "light"
+
+  const storeTheme = (theme) => window.localStorage.setItem(THEME, theme);
   const themeController = document.getElementById("theme-controller");
 
   const initialTheme = (() => {
-    const localStorageTheme = localStorage?.getItem("theme") ?? '';
-    if (['dark', 'light'].includes(localStorageTheme)) {
+    const localStorageTheme = localStorage?.getItem(THEME) ?? "";
+    if ([DARK, LIGHT].includes(localStorageTheme)) {
       return localStorageTheme;
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return DARK;
     }
-      return 'light';
+      return LIGHT;
   })();
 
   storeTheme(initialTheme);
-  themeController.checked = initialTheme === "dark";
+  themeController.checked = initialTheme === DARK;
 
   const onThemeChange = (checkbox) => {
-    storeTheme(checkbox.checked ? "dark" : "light");
+    storeTheme(checkbox.checked ? DARK : LIGHT);
   }
 </script>
