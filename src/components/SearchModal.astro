@@ -4,7 +4,7 @@ import SearchIcon from "../assets/search.svg";
 ---
 
 <a onclick="search_modal.showModal()"><SearchIcon width={20} height={20}/> Search</a>
-<div class="absolute">
+<div class="absolute p-0">
   <dialog id="search_modal" class="modal">
     <div class="modal-box">
       <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false, autofocus: true }} />

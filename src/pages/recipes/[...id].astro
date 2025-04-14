@@ -14,7 +14,7 @@ const { recipe } = Astro.props;
 const { Content } = await render(recipe);
 ---
 <Layout>
-    <div data-pagefind-body>
+    <div class="prose dark:prose-invert mt-10 m-auto" data-pagefind-body>
         <Content />
     </div>
 </Layout>
