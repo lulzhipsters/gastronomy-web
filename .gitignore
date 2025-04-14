@@ -13,6 +13,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# content repo
+content-repo
+
 # Local env files
 .env
 .env.*
