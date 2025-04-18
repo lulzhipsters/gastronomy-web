@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "git -C content-repo pull || clone --branch main https://github.com/lulzhipsters/gastronomy.git content-repo",
+    "prebuild": "sh ./scripts/pull-content-repo.sh",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
