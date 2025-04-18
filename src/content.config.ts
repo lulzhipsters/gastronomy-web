@@ -8,4 +8,11 @@ const recipes = defineCollection({
     })
 });
 
-export const collections = { recipes };
+const techniques = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./content-repo/techniques/"}),
+    schema: z.object({
+        title: z.string().optional()
+    })
+})
+
+export const collections = { recipes, techniques };
