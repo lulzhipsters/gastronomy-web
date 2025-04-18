@@ -3,10 +3,10 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-    themes: silk --default, luxury --prefersdark;
+    themes: silk --default, business --prefersdark;
 }
 
 @layer utilities {
     .font-text, .font-display { font-family: 'Habibi', sans-serif; }
-    .font-display-alt { font-family: 'Cedarville Cursive', cursive; }
+    .font-display-alt { font-family: 'Caveat', cursive; }
 }
