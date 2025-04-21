@@ -5,7 +5,7 @@ import GitHubLogo from "../assets/github.svg";
 
 <div class="navbar bg-base-200 shadow-sm">
   <div class="flex-1">
-    <a class="btn btn-ghost text-4xl font-display-alt" href="/"><span id="title-emoji" class="text-2xl"></span> Gastronomy</a>
+    <a class="btn btn-ghost text-4xl font-display-alt" href="/"><span id="title-emoji" class="text-2xl"></span>Gastronomy</a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
@@ -16,6 +16,7 @@ import GitHubLogo from "../assets/github.svg";
           <a href="https://github.com/lulzhipsters/gastronomy"><GitHubLogo width={20} height={20} /> GitHub</a>
       </li>
       <li>
+        <!-- Dark/Light theme switch -->
         <label class="swap swap-rotate">
           <!-- this hidden checkbox controls the state -->
           <input id="theme-controller" type="checkbox" class="theme-controller" value="business" onchange="onThemeChange(this)" />

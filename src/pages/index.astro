@@ -49,11 +49,18 @@ const recipes = (await getCollection("recipes")).toSorted(compareId);
 const techniques = (await getCollection("techniques")).toSorted(compareId);
 ---
 <Layout>
-    <div class="m-10">
+    <div class="max-w-7xl m-auto p-5">
         <Accordion name="accordion-1" checked={ true }>
             <span slot="title">About</span>
-            <div slot="content" class="p-10 pb-1">
+            <div slot="content">
                 <ReadmeContent />
+            </div>
+        </Accordion>
+
+        <Accordion name="accordion-1">
+            <span slot="title">Quick Reference</span>
+            <div slot="content" data-pagefind-body>
+                eg, cooking times for meats etc.
             </div>
         </Accordion>
 
@@ -70,7 +77,6 @@ const techniques = (await getCollection("techniques")).toSorted(compareId);
                             <a href={ `/recipes/${recipe.id}` } >
                                 { recipe.data.title || guessTitle(recipe) }
                             </a>
-                            <div hidden>{ JSON.stringify(recipe) }</div>
                         </li>
                     )) }
                 </ul>
@@ -90,7 +96,6 @@ const techniques = (await getCollection("techniques")).toSorted(compareId);
                             <a href={ `/techniques/${tech.id}`} >
                                 { tech.data.title || guessTitle(tech) }
                             </a>
-                            <div hidden>{ JSON.stringify(tech) }</div>
                         </li>
                     )) }
                 </ul>
