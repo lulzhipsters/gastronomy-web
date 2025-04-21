@@ -8,8 +8,5 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    integrations: [pagefind()],
-    experimental: {
-        svg: true,
-    },
+    integrations: [pagefind()]
 });
