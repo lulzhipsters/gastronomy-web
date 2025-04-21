@@ -1,7 +1,9 @@
 ---
-import { string } from 'astro:schema';
+import Accordion from '../components/Accordion.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from "astro:content";
+
+import { Content as ReadmeContent } from "../../content-repo/README.md";
 
 interface TitledElement {
     id: string;
@@ -47,51 +49,53 @@ const recipes = (await getCollection("recipes")).toSorted(compareId);
 const techniques = (await getCollection("techniques")).toSorted(compareId);
 ---
 <Layout>
-    <div class="collapse bg-base-100 border border-base-300">
-        <input type="radio" name="accordion-1" checked="checked" />
-        <div class="collapse-title font-semibold">About</div>
-        <div class="collapse-content prose">
-            
-        </div>
-    </div>
-    <div class="collapse bg-base-100 border border-base-300">
-        <input type="radio" name="accordion-1" />
-        <div class="collapse-title font-semibold">Recipes</div>
-        <div class="collapse-content prose">
-            <ul>
-                { recipes.map(recipe => (
-                    <li>
-                        { path(recipe.id) 
-                            ? <span>{path(recipe.id)} /</span>
-                            : <span></span>
-                        }
-                        <a href={ `/recipes/${recipe.id}` } >
-                            { recipe.data.title || guessTitle(recipe) }
-                        </a>
-                        <div hidden>{ JSON.stringify(recipe) }</div>
-                    </li>
-                )) }
-            </ul>
-        </div>
-    </div>
-    <div class="collapse bg-base-100 border border-base-300">
-        <input type="radio" name="accordion-1" />
-        <div class="collapse-title font-semibold">Techniques</div>
-        <div class="collapse-content prose">
-            <ul>
-                { techniques.map(tech => (
-                    <li>
-                        { path(tech.id) 
-                            ? <span>{path(tech.id)} /</span>
-                            : <span></span>
-                        }
-                        <a href={ `/techniques/${tech.id}`} >
-                            { tech.data.title || guessTitle(tech) }
-                        </a>
-                        <div hidden>{ JSON.stringify(tech) }</div>
-                    </li>
-                )) }
-            </ul></div>
+    <div class="m-10">
+        <Accordion name="accordion-1" checked={ true }>
+            <span slot="title">About</span>
+            <div slot="content" class="p-10 pb-1">
+                <ReadmeContent />
+            </div>
+        </Accordion>
+
+        <Accordion name="accordion-1">
+            <span slot="title">Recipes</span>
+            <div slot="content" class="prose">
+                <ul>
+                    { recipes.map(recipe => (
+                        <li>
+                            { path(recipe.id) 
+                                ? <span>{path(recipe.id)} /</span>
+                                : <span></span>
+                            }
+                            <a href={ `/recipes/${recipe.id}` } >
+                                { recipe.data.title || guessTitle(recipe) }
+                            </a>
+                            <div hidden>{ JSON.stringify(recipe) }</div>
+                        </li>
+                    )) }
+                </ul>
+            </div>
+        </Accordion>
+
+        <Accordion name="accordion-1">
+            <span slot="title">Techniques</span>
+            <div slot="content" class="prose">
+                <ul>
+                    { techniques.map(tech => (
+                        <li>
+                            { path(tech.id) 
+                                ? <span>{path(tech.id)} /</span>
+                                : <span></span>
+                            }
+                            <a href={ `/techniques/${tech.id}`} >
+                                { tech.data.title || guessTitle(tech) }
+                            </a>
+                            <div hidden>{ JSON.stringify(tech) }</div>
+                        </li>
+                    )) }
+                </ul>
+            </div>
+        </Accordion>
     </div>
     
 </Layout>

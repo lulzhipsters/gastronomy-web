@@ -3,9 +3,9 @@ import SearchModal from "../components/SearchModal.astro";
 import GitHubLogo from "../assets/github.svg";
 ---
 
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-200 shadow-sm">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl" href="/">Gastronomy</a>
+    <a class="btn btn-ghost text-4xl font-display-alt" href="/"><span id="title-emoji" class="text-2xl"></span> Gastronomy</a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
@@ -68,4 +68,13 @@ import GitHubLogo from "../assets/github.svg";
   const onThemeChange = (checkbox) => {
     storeTheme(checkbox.checked ? DARK : LIGHT);
   }
+</script>
+
+<script is:inline>
+  const emojis = ["🥐", "🥑", "🥓", "🥔", "🥕", "🥖", "🥗", "🥘", "🥙", "🥝", "🥞", "🦐", "🦑", "🍸", "🍹", "🥂"]
+  const selected = Math.floor(Math.random() * emojis.length);
+
+  console.log("selected emoji: " + emojis[selected]);
+
+  document.getElementById("title-emoji").textContent = emojis[selected];
 </script>
