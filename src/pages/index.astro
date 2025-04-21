@@ -47,34 +47,51 @@ const recipes = (await getCollection("recipes")).toSorted(compareId);
 const techniques = (await getCollection("techniques")).toSorted(compareId);
 ---
 <Layout>
-    <div class="prose">
-        <h2>Recipes</h2>
-        <ul>
-            { recipes.map(recipe => (
-                <li>
-                    { path(recipe.id) 
-                        ? <span>{path(recipe.id)} /</span>
-                        : <span></span>
-                    }
-                    <a href={ `/recipes/${recipe.id}` } >
-                        { recipe.data.title || guessTitle(recipe) }
-                    </a>
-                    <div hidden>{ JSON.stringify(recipe) }</div>
-                </li>
-            )) }
-        </ul>
-
-        <h2>Techniques</h2>
-        <ul>
-            { techniques.map(tech => (
-                <li>
-                    <a href={ `/techniques/${tech.id}`} >
-                        { tech.data.title || guessTitle(tech) }
-                    </a>
-                    <div hidden>{ JSON.stringify(tech) }</div>
-                </li>
-            )) }
-        </ul>
+    <div class="collapse bg-base-100 border border-base-300">
+        <input type="radio" name="accordion-1" checked="checked" />
+        <div class="collapse-title font-semibold">About</div>
+        <div class="collapse-content prose">
+            
+        </div>
+    </div>
+    <div class="collapse bg-base-100 border border-base-300">
+        <input type="radio" name="accordion-1" />
+        <div class="collapse-title font-semibold">Recipes</div>
+        <div class="collapse-content prose">
+            <ul>
+                { recipes.map(recipe => (
+                    <li>
+                        { path(recipe.id) 
+                            ? <span>{path(recipe.id)} /</span>
+                            : <span></span>
+                        }
+                        <a href={ `/recipes/${recipe.id}` } >
+                            { recipe.data.title || guessTitle(recipe) }
+                        </a>
+                        <div hidden>{ JSON.stringify(recipe) }</div>
+                    </li>
+                )) }
+            </ul>
+        </div>
+    </div>
+    <div class="collapse bg-base-100 border border-base-300">
+        <input type="radio" name="accordion-1" />
+        <div class="collapse-title font-semibold">Techniques</div>
+        <div class="collapse-content prose">
+            <ul>
+                { techniques.map(tech => (
+                    <li>
+                        { path(tech.id) 
+                            ? <span>{path(tech.id)} /</span>
+                            : <span></span>
+                        }
+                        <a href={ `/techniques/${tech.id}`} >
+                            { tech.data.title || guessTitle(tech) }
+                        </a>
+                        <div hidden>{ JSON.stringify(tech) }</div>
+                    </li>
+                )) }
+            </ul></div>
     </div>
     
 </Layout>
