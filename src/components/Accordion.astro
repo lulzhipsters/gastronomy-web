@@ -2,9 +2,9 @@
 const { name, checked } = Astro.props;
 ---
 
-<div class="collapse bg-base-100 border border-base-300">
+<div class="collapse bg-base-100">
     <input type="radio" name={ name } checked={ checked } />
-    <div class="collapse-title font-display-alt text-2xl bg-base-200">
+    <div class="collapse-title font-bold font-display-alt text-2xl">
         <slot name="title"></slot>
     </div>
     <div class="collapse-content prose">

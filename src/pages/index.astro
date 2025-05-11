@@ -50,20 +50,14 @@ const techniques = (await getCollection("techniques")).toSorted(compareId);
 ---
 <Layout>
     <div class="max-w-7xl m-auto p-5">
-        <Accordion name="accordion-1" checked={ true }>
-            <span slot="title">About</span>
-            <div slot="content">
-                <ReadmeContent />
-            </div>
-        </Accordion>
 
-        <Accordion name="accordion-1">
+        <Accordion name="accordion-1" checked={ true }>
             <span slot="title">Quick Reference</span>
             <div slot="content" data-pagefind-body>
                 eg, cooking times for meats etc.
             </div>
         </Accordion>
-
+        <div class="divider" />
         <Accordion name="accordion-1">
             <span slot="title">Recipes</span>
             <div slot="content" class="prose">
@@ -82,7 +76,7 @@ const techniques = (await getCollection("techniques")).toSorted(compareId);
                 </ul>
             </div>
         </Accordion>
-
+        <div class="divider" />
         <Accordion name="accordion-1">
             <span slot="title">Techniques</span>
             <div slot="content" class="prose">
@@ -99,6 +93,13 @@ const techniques = (await getCollection("techniques")).toSorted(compareId);
                         </li>
                     )) }
                 </ul>
+            </div>
+        </Accordion>
+        <div class="divider" />
+        <Accordion name="accordion-1">
+            <span slot="title">About</span>
+            <div slot="content">
+                <ReadmeContent />
             </div>
         </Accordion>
     </div>

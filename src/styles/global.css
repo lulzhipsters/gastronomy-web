@@ -7,12 +7,12 @@
 }
 
 @layer utilities {
-    .font-text, .font-display { font-family: 'Habibi', sans-serif; }
-    .font-display-alt { font-family: 'Caveat', cursive; }
+    .font-text, .font-display { font-family: 'Quicksand', sans-serif; }
+    .font-display-alt { font-family: 'Vollkorn', serif; }
 }
 
 @layer base {
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'Caveat', cursive;
+        font-family: 'Vollkorn', serif;
     }
 }
