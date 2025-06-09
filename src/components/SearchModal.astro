@@ -3,11 +3,11 @@ import Search from "astro-pagefind/components/Search";
 import SearchIcon from "../assets/search.svg";
 ---
 
-<a onclick="search_modal.showModal()"><SearchIcon width={20} height={20}/> Search</a>
+<a id="search_link"><SearchIcon width={20} height={20}/> Search</a>
 <div class="absolute p-0">
   <dialog id="search_modal" class="modal">
     <div class="modal-box">
-      <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false, autofocus: true }} />
+      <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
       <p class="mt-4">
         <a class="link text-md font-light" onclick="search_modal.close()">Close</a> <kbd class="kbd">ESC</kbd>
       </p>
@@ -16,3 +16,22 @@ import SearchIcon from "../assets/search.svg";
     </form>
   </dialog>
 </div>
+
+<script>
+  const link = document.getElementById("search_link");
+  const modal = document.getElementById("search_modal") as { showModal: () => void } | null;
+  const input = document.querySelector('.pagefind-ui__search-input') as { focus: () => void } | null;
+
+  link?.addEventListener("click", () => {
+    modal?.showModal(); 
+    setTimeout(() => input?.focus(), 100)
+  })
+</script>
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-text: var(--color-base-content);
+    --pagefind-ui-background: var(--color-base-200);
+    --pagefind-ui-border: var(--neutral-content);
+  }
+</style>

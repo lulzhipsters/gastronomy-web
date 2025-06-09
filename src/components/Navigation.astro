@@ -19,7 +19,7 @@ import GitHubLogo from "../assets/github.svg";
         <!-- Dark/Light theme switch -->
         <label class="swap swap-rotate">
           <!-- this hidden checkbox controls the state -->
-          <input id="theme-controller" type="checkbox" class="theme-controller" value="business" onchange="onThemeChange(this)" />
+          <input id="theme-controller" type="checkbox" class="theme-controller" value="business" />
         
           <!-- sun icon -->
           <svg
@@ -65,10 +65,10 @@ import GitHubLogo from "../assets/github.svg";
 
   storeTheme(initialTheme);
   themeController.checked = initialTheme === DARK;
+  themeController.addEventListener("change", (checkbox) => {
+    storeTheme(themeController.checked ? DARK : LIGHT);
+  })
 
-  const onThemeChange = (checkbox) => {
-    storeTheme(checkbox.checked ? DARK : LIGHT);
-  }
 </script>
 
 <script is:inline>
